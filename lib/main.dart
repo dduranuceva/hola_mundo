@@ -12,8 +12,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //go_router para navegacion
     return MaterialApp.router(
-      theme: AppTheme.lightTheme,
+      theme:
+          AppTheme.lightTheme, //thema personalizado y permamente en toda la app
       title: 'Flutter - UCEVA', // Usa el tema personalizado
       routerConfig: appRouter, // Usa el router configurado
     );

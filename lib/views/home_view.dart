@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hola_mundo/views/base_view.dart';
+import 'package:hola_mundo/views/contador.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -11,6 +12,7 @@ class HomeView extends StatelessWidget {
       body: Column(
         children: [
           const Center(child: Text('Bienvenido a la pantalla de inicio')),
+          Contador(),
         ],
       ),
       //

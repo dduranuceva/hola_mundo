@@ -65,6 +65,21 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context); // Cierra el drawer
             },
           ),
+          //!PASO DE PARAMETROS
+          ListTile(
+            leading: const Icon(Icons.input),
+            title: const Text('Paso de Parámetros'),
+            onTap: () {
+              context.go('/paso_parametros');
+            },
+          ),
+          ListTile(
+            leading: const Icon(Icons.loop),
+            title: const Text('Ciclo de Vida'),
+            onTap: () {
+              context.go('/ciclo_vida');
+            },
+          ),
         ],
       ),
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppTheme {
+  //! Método para obtener el tema claro
   static ThemeData get lightTheme {
     return ThemeData(
       colorScheme: ColorScheme.fromSeed(

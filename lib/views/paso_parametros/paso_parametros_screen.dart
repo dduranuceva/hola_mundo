@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:hola_mundo/views/base_view.dart';
+import 'package:hola_mundo/views/custom_drawer.dart';
+import 'package:hola_mundo/views/paso_parametros/detalle_screen.dart';
 
 /// !PasoParametrosScreen - Pantalla de Paso de Parámetros
 /// es una vista/screen que permite ingresar un valor
@@ -20,7 +23,8 @@ class PasoParametrosScreen extends StatefulWidget {
 class PasoParametrosScreenState extends State<PasoParametrosScreen> {
   /// Controlador para capturar el texto ingresado en el TextField
   /// *se utiliza textEditingController para poder capturar el valor del campo de texto
-  final TextEditingController controller = TextEditingController();
+  final TextEditingController controller =
+      TextEditingController(); //!controlador para capturar el texto ingresado en el TextField
   @override
   void dispose() {
     controller.dispose(); // Liberamos la memoria del controlador
@@ -52,8 +56,8 @@ class PasoParametrosScreenState extends State<PasoParametrosScreen> {
   @override
   // *build es un metodo que retorna un widget
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Paso de Parámetros')),
+    return BaseView(
+      title: "paso de parametros",
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(

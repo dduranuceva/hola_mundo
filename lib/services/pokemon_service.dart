@@ -4,9 +4,8 @@ import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class PokemonService {
-  final String apiUrl =
-      dotenv
-          .env['POKE_API_URL']!; // ! Se obtiene la url de la api desde el archivo .env
+  // ! Se obtiene la url de la api desde el archivo .env
+  final String apiUrl = dotenv.env['POKE_API_URL']!;
 
   // ! Método para obtener la lista de Pokémon
   // * se crea una istancia del modelo Pokemon, se hace una petición http a la url de la api y se obtiene la respuesta

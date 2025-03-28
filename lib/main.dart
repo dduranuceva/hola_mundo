@@ -6,9 +6,9 @@ import 'themes/app_theme.dart'; // Importa el tema
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized(); //! Importante para que funcione el dotenv, inicializa el widget
-  await dotenv.load(
-    fileName: ".env",
-  ); //!carga el archivo .env en la raiz del proyecto
+
+  //!carga el archivo .env en la raiz del proyecto
+  await dotenv.load(fileName: ".env");
   runApp(const MyApp());
 }
 

@@ -12,10 +12,10 @@ class PokemonListView extends StatefulWidget {
 }
 
 class _PokemonListViewState extends State<PokemonListView> {
-  final PokemonService _pokemonService =
-      PokemonService(); //* Se crea una instancia de la clase PokemonService
-  late Future<List<Pokemon>>
-  _futurePokemons; //* Se declara una variable de tipo Future que contendrá la lista de Pokémon
+  //* Se crea una instancia de la clase PokemonService
+  final PokemonService _pokemonService = PokemonService();
+  //* Se declara una variable de tipo Future que contendrá la lista de Pokémon
+  late Future<List<Pokemon>> _futurePokemons;
 
   @override
   void initState() {

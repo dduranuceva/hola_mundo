@@ -12,17 +12,16 @@ class PokemonDetailView extends StatefulWidget {
 }
 
 class _PokemonDetailViewState extends State<PokemonDetailView> {
-  final PokemonService _pokemonService =
-      PokemonService(); // Se crea una instancia de la clase PokemonService
-  late Future<Pokemon>
-  _futurePokemon; // Se declara una variable de tipo Future que contendrá el detalle del Pokémon
+  // Se crea una instancia de la clase PokemonService
+  final PokemonService _pokemonService = PokemonService();
+  // Se declara una variable de tipo Future que contendrá el detalle del Pokémon
+  late Future<Pokemon> _futurePokemon;
 
   @override
   void initState() {
     super.initState();
-    _futurePokemon = _pokemonService.getPokemonByName(
-      widget.name,
-    ); // Se llama al método getPokemonByName de la clase PokemonService
+    // Se llama al método getPokemonByName de la clase PokemonService
+    _futurePokemon = _pokemonService.getPokemonByName(widget.name);
   }
 
   @override

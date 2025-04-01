@@ -1,5 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:hola_mundo/views/ciclo_vida/ciclo_vida_screen.dart';
+import 'package:hola_mundo/views/establecimientos/establecimiento_edit_view.dart';
+import 'package:hola_mundo/views/establecimientos/establecimientos_list_view.dart';
 import 'package:hola_mundo/views/future/future_view.dart';
 import 'package:hola_mundo/views/home_view.dart';
 import 'package:hola_mundo/views/isolate/isolate_view.dart';
@@ -80,6 +82,22 @@ final GoRouter appRouter = GoRouter(
       builder:
           (context, state) =>
               PokemonDetailView(name: state.pathParameters['name']!),
+    ),
+    //!Rutas para el manejo de Establecimientos
+    //!Ruta para la lista de establecimientos
+    GoRoute(
+      path: '/establecimientos',
+      name: 'establecimientos',
+      builder: (context, state) => const EstablecimientosListView(),
+    ),
+    //!Ruta para editar de un establecimiento
+    GoRoute(
+      path: '/establecimientos/edit/:id',
+      builder: (context, state) {
+        //*se captura el id del establecimiento
+        final id = int.parse(state.pathParameters['id']!);
+        return EstablecimientoEditView(id: id);
+      },
     ),
   ],
 );

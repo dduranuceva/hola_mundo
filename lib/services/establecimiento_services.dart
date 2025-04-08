@@ -77,4 +77,51 @@ class EstablecimientoService {
       throw Exception('Error al actualizar establecimiento: $e');
     }
   }
+
+  //! createEstablecimiento
+  /// Crea un nuevo establecimiento en la API.
+  /// Recibe un objeto Establecimiento y un archivo de imagen opcional.
+  /// Devuelve true si la creación fue exitosa, false en caso contrario.
+  Future<bool> createEstablecimiento(
+    Establecimiento est, {
+    File? logoFile,
+  }) async {
+    try {
+      final uri = Uri.parse('${baseUrl}establecimientos');
+
+      String? base64Image;
+      if (logoFile != null) {
+        final imageBytes = await logoFile.readAsBytes();
+        base64Image = base64Encode(imageBytes);
+      }
+
+      final body = jsonEncode(est.toJson(logoBase64: base64Image));
+
+      final response = await http.post(
+        uri,
+        headers: {'Content-Type': 'application/json'},
+        body: body,
+      );
+
+      return response.statusCode == 201;
+    } catch (e) {
+      throw Exception('Error al crear establecimiento: $e');
+    }
+  }
+
+  //! deleteEstablecimiento
+  /// Realiza un borrado lógico de un establecimiento por ID.
+  /// Retorna true si fue exitoso.
+  Future<bool> deleteEstablecimiento(int id) async {
+    final response = await http.delete(
+      Uri.parse('${baseUrl}establecimientos/$id'),
+    );
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return data['success'] == true;
+    } else {
+      throw Exception('Error al eliminar el establecimiento');
+    }
+  }
 }

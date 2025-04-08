@@ -1,5 +1,8 @@
 import 'package:go_router/go_router.dart';
+import 'package:hola_mundo/views/auth/login_page.dart';
+import 'package:hola_mundo/views/auth/register_page.dart';
 import 'package:hola_mundo/views/ciclo_vida/ciclo_vida_screen.dart';
+import 'package:hola_mundo/views/establecimientos/establecimiento_create_view.dart';
 import 'package:hola_mundo/views/establecimientos/establecimiento_edit_view.dart';
 import 'package:hola_mundo/views/establecimientos/establecimientos_list_view.dart';
 import 'package:hola_mundo/views/future/future_view.dart';
@@ -98,6 +101,23 @@ final GoRouter appRouter = GoRouter(
         final id = int.parse(state.pathParameters['id']!);
         return EstablecimientoEditView(id: id);
       },
+    ),
+    //!Ruta para crear un nuevo establecimiento
+    GoRoute(
+      path: '/establecimientos/create',
+      builder: (context, state) => const EstablecimientoCreateView(),
+    ),
+
+    //!Ruta para autenticacion
+    GoRoute(
+      path: '/login',
+      name: 'login',
+      builder: (context, state) => const LoginPage(),
+    ),
+    GoRoute(
+      path: '/register',
+      name: 'register',
+      builder: (context, state) => const RegisterPage(),
     ),
   ],
 );

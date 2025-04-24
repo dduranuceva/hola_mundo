@@ -29,6 +29,8 @@ class ChangeThemeView extends StatelessWidget {
               availableColors.map((color) {
                 return GestureDetector(
                   onTap: () {
+                    // Cambia el color del tema al color seleccionado
+                    // y lo guarda en SharedPreferences
                     themeProvider.setColor(color);
                   },
                   child: Container(

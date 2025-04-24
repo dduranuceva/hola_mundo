@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       theme: AppTheme.lightTheme(
         themeColor,
-      ), // 👉 Usa el color dinámico en el tema personalizado
+      ), //Usa el color dinámico en el tema personalizado
       title: 'Flutter - UCEVA',
       routerConfig: appRouter, // Usa el router configurado
     );

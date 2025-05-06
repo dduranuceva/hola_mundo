@@ -198,6 +198,12 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('Categorías'),
             onTap: () => context.push('/categorias'),
           ),
+          //! ruta para categorías
+          ListTile(
+            leading: const Icon(Icons.category),
+            title: const Text('Categorías'),
+            onTap: () => context.push('/categorias'),
+          ),
         ],
       ),
     );

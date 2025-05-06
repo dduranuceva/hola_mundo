@@ -1,6 +1,9 @@
 import 'package:go_router/go_router.dart';
 import 'package:hola_mundo/views/auth/login_page.dart';
 import 'package:hola_mundo/views/auth/register_page.dart';
+import 'package:hola_mundo/views/categorias/categorias_create_view.dart';
+import 'package:hola_mundo/views/categorias/categorias_edit_view.dart';
+import 'package:hola_mundo/views/categorias/categorias_list_view.dart';
 import 'package:hola_mundo/views/ciclo_vida/ciclo_vida_screen.dart';
 import 'package:hola_mundo/views/establecimientos/establecimiento_create_view.dart';
 import 'package:hola_mundo/views/establecimientos/establecimiento_edit_view.dart';
@@ -125,6 +128,22 @@ final GoRouter appRouter = GoRouter(
       path: '/cambiar-tema',
       name: 'cambiar-tema',
       builder: (context, state) => const ChangeThemeView(),
+    ),
+    //! Rutas para el manejo de Categorías (CRUD) sqflite
+    GoRoute(
+      path: '/categorias',
+      builder: (_, __) => const CategoriasListView(),
+    ),
+    GoRoute(
+      path: '/categorias/create',
+      builder: (context, state) => const CategoriasCreateView(),
+    ),
+    GoRoute(
+      path: '/categorias/edit/:id',
+      builder: (context, state) {
+        final id = int.parse(state.pathParameters['id']!);
+        return CategoriasEditView(id: id);
+      },
     ),
   ],
 );

@@ -204,6 +204,11 @@ class _CustomDrawerState extends State<CustomDrawer> {
             title: const Text('Categorías'),
             onTap: () => context.push('/categorias'),
           ),
+          ListTile(
+            leading: const Icon(Icons.cloud),
+            title: const Text('Categorías Firebase'),
+            onTap: () => context.pushNamed('categoriasFirebase'),
+          ),
         ],
       ),
     );

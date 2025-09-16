@@ -1,6 +1,8 @@
 import 'package:go_router/go_router.dart';
 import 'package:hola_mundo/views/auth/login_page.dart';
 import 'package:hola_mundo/views/auth/register_page.dart';
+import 'package:hola_mundo/views/categoria_fb/categoria_fb_form_view.dart';
+import 'package:hola_mundo/views/categoria_fb/categoria_fb_list_view.dart';
 import 'package:hola_mundo/views/categorias/categorias_create_view.dart';
 import 'package:hola_mundo/views/categorias/categorias_edit_view.dart';
 import 'package:hola_mundo/views/categorias/categorias_list_view.dart';
@@ -143,6 +145,24 @@ final GoRouter appRouter = GoRouter(
       builder: (context, state) {
         final id = int.parse(state.pathParameters['id']!);
         return CategoriasEditView(id: id);
+      },
+    ),
+    GoRoute(
+      path: '/categoriasFirebase',
+      name: 'categoriasFirebase',
+      builder: (_, __) => const CategoriaFbListView(),
+    ),
+    GoRoute(
+      path: '/categoriasfb/create',
+      name: 'categoriasfb.create',
+      builder: (context, state) => const CategoriaFbFormView(),
+    ),
+    GoRoute(
+      path: '/categoriasfb/edit/:id',
+      name: 'categorias.edit',
+      builder: (context, state) {
+        final id = state.pathParameters['id']!;
+        return CategoriaFbFormView(id: id);
       },
     ),
   ],
